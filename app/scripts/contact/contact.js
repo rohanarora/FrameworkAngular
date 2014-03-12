@@ -1,7 +1,9 @@
 'use strict';
 
-angular.module('contactApp')
-.controller('ContactCtrl', function ($scope) {
-	$scope.message =
-		{'content': 'Contact'};
+angular.module('contactApp', [])
+.config(function ($routeProvider) {
+	$routeProvider
+	.when('/contact', {
+		templateUrl: 'views/contact.html',
+	});
 });

@@ -1,7 +1,9 @@
 'use strict';
 
-angular.module('aboutApp')
-.controller('AboutCtrl', function ($scope) {
-	$scope.message =
-		{'content': 'About'};
+angular.module('aboutApp', [])
+.config(function ($routeProvider) {
+	$routeProvider
+	.when('/about', {
+		templateUrl: 'views/about.html',
+	});
 });

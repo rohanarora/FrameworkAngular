@@ -1,7 +1,9 @@
 'use strict';
 
-angular.module('mainApp')
-.controller('MainCtrl', function ($scope) {
-	$scope.message =
-		{'content': 'Main'};
+angular.module('mainApp', [])
+.config(function ($routeProvider) {
+	$routeProvider
+	.when('/', {
+		templateUrl: 'views/main.html',
+	});
 });
