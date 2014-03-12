@@ -1,0 +1,18 @@
+{
+  "name": "Test App",
+  "description": "",
+  "version": "0.0",
+  "main": "index.html",
+  "window": {
+		"width": 360,
+    "height": 300,
+    "min_width": 220,
+    "min_height": 220,
+		"fullscreen": true,
+		"show": false,
+		//toolbar and frame set to true for debugging
+    "toolbar": true,
+    "frame": true,
+    "position": "center"
+  }
+}
