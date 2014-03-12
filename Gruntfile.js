@@ -9,6 +9,8 @@
 
 module.exports = function (grunt) {
 
+	//connect-modewrite enables us to browse over to a route directly in html5mode
+	//https://github.com/tinganho/connect-modrewrite
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
@@ -63,15 +65,20 @@ module.exports = function (grunt) {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost',
-        livereload: 35729
-      },
+        livereload: 35729,
+			},
       livereload: {
         options: {
           open: true,
           base: [
             '.tmp',
             '<%= yeoman.app %>'
-          ]
+          ],
+					middleware: function (connect, options) {
+								var optBase = (typeof options.base === 'string') ? [options.base] : options.base;
+								return [require('connect-modrewrite')(['!(\\..+)$ / [L]'])].concat(
+									optBase.map(function(path){ return connect.static(path); }));
+							}
         }
       },
       test: {
@@ -81,7 +88,16 @@ module.exports = function (grunt) {
             '.tmp',
             'test',
             '<%= yeoman.app %>'
-          ]
+          ],
+					//middleware: function(connect, options) {
+					//	var middlewares = [];
+					//	middlewares.push(modRewrite(['^[^\\.]*$ /index.html [L]']));
+					//	options.base.forEach(function(base) {
+					//		// Serve static files.
+					//		middlewares.push(connect.static(base));
+					//	});
+					//	return middlewares;
+					//}
         }
       },
       dist: {
@@ -404,3 +420,7 @@ module.exports = function (grunt) {
     'build'
   ]);
 };
+
+
+
+
