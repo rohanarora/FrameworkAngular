@@ -4,11 +4,10 @@ angular.module('rohanApp', [
 	'ngCookies',
 	'ngResource',
 	'ngSanitize',
-	//'ngRoute',
 	'mainApp',
 	'aboutApp',
 	'contactApp',
-	'ui.router'
+	'ui.router',
 ])
 
 .config(function ($stateProvider, $urlRouterProvider) {

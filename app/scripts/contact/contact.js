@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('contactApp', ['ui.router'])
+angular.module('contactApp', ['ui.router', 'google-maps'])
 .config(function ($stateProvider) {
 	$stateProvider
 	.state('contact',{
