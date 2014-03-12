@@ -10,7 +10,8 @@ angular.module('rohanApp', [
 	'ui.router',
 ])
 
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
+	$locationProvider.html5Mode(true).hashPrefix('!');
 	$urlRouterProvider
 	.otherwise('/');
 });
