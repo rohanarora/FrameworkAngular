@@ -1,9 +1,10 @@
 'use strict';
 
-angular.module('mainApp', [])
-.config(function ($routeProvider) {
-	$routeProvider
-	.when('/', {
+angular.module('mainApp', ['ui.router'])
+.config(function ($stateProvider) {
+	$stateProvider
+	.state('main',{
+		url:'/',
 		templateUrl: 'views/main.html',
 	});
 });
